@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FastBite - Fast-Food Yetkazib Berish</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="logo">🍔 FastBite</div>
+        <button class="cart-btn" onclick="scrollToCart()">🛒 Savatcha (<span id="cart-count">0</span>)</button>
+    </header>
+
+    <div class="container">
+        <!-- Asosiy Menyu -->
+        <div class="main-content">
+            <div class="categories">
+                <button class="cat-btn active" onclick="filterMenu('all')">Barchasi</button>
+                <button class="cat-btn" onclick="filterMenu('burger')">Burgerlar</button>
+                <button class="cat-btn" onclick="filterMenu('lavash')">Lavash & Shaurma</button>
+                <button class="cat-btn" onclick="filterMenu('pizza')">Pitsa</button>
+                <button class="cat-btn" onclick="filterMenu('drink')">Ichimliklar</button>
+            </div>
+
+            <div class="menu-grid" id="menu-grid">
+                <!-- JavaScript orqali to'ldiriladi -->
+            </div>
+        </div>
+
+        <!-- Savatcha va Buyurtma Paneli -->
+        <div class="cart-sidebar" id="cart-sidebar">
+            <div class="cart-title">Sizning buyurtmangiz</div>
+            
+            <div class="cart-items" id="cart-items">
+                <div class="empty-cart">Savatchangiz bo'sh</div>
+            </div>
+
+            <div class="delivery-section">
+                <label>
+                    <input type="checkbox" id="delivery-checkbox" onchange="toggleDelivery()"> 
+                    🛵 Yetkazib berish (+15,000 so'm)
+                </label>
+            </div>
+
+            <div class="payment-methods">
+                <p style="font-weight:600; font-size:14px; margin-bottom:5px;">To'lov turi:</p>
+                <label><input type="radio" name="payment" value="cash" checked onclick="togglePayment('cash')"> Naqd pul</label>
+                <label><input type="radio" name="payment" value="card" onclick="togglePayment('card')"> Plastik karta (Uzcard/Humo)</label>
+                <div id="card-details">
+                    <input type="text" placeholder="Karta raqami: 8600 ... ... ..." maxlength="19">
+                </div>
+            </div>
+
+            <div class="cart-summary">
+                <div class="summary-row">
+                    <span>Mahsulotlar:</span>
+                    <span id="subtotal-price">0 so'm</span>
+                </div>
+                <div class="summary-row" id="delivery-row" style="display: none;">
+                    <span>Yetkazib berish:</span>
+                    <span id="delivery-price">15,000 so'm</span>
+                </div>
+                <div class="summary-row total">
+                    <span>Jami:</span>
+                    <span id="total-price">0 so'm</span>
+                </div>
+            </div>
+
+            <button class="checkout-btn" onclick="checkout()">Buyurtma berish</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
